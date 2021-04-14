@@ -35,8 +35,8 @@ drawing, and other game play will be handled automatically by the program.
         * [Manual tests](#manual-tests)
 
 ## Overview
-Without playing Blackjack (and barely any card game) before, the provided instructions did a really 
-good job explaining the gameplay and its intricacies.
+Without playing Blackjack (and barely any card game) before, I found that the provided instructions 
+did a really good job explaining the gameplay and its intricacies.
 
 A couple small points of confusion and the assumptions I made:
 
@@ -50,7 +50,7 @@ does the Player still win or is it a tie?
     Dealer has: J ? = ? (or J A = 21)
     Player has: 10 A = 21
     ```
-   * Assumption: Same as above, since the ? value seems to be hidden to both players until Dealer's turn
+   * Assumption: Same as above, since the ? value seems to be hidden from both players until Dealer's turn
 starts
 
 After fully understanding the requirements, I defined some of the main areas that the code should 
@@ -73,8 +73,9 @@ card using random.randint, as well as permanently deleting a card after it's bee
 
 As for the two hands, we needed a way to represent the actual card names, as well as their corresponding
 values ('J' for 10, 'A' for 11 or 1, etc.), I chose to use defaultdict(list) to store card names as
-keys and card values as arrays of values. This would simply data access later on as a player draws 
-multiple cards of the same type, or draws multiple A's that can worth either 11 or 1. For example:
+keys and card values as arrays of values. Hashmap nicely has complexity of O(1) for insertion and 
+lookup. This would simplify data access later on as a player draws multiple cards of the same type, 
+or draws multiple A's that can worth either 11 or 1. For example:
 
     player_hand = {'9': [9], '2': [2, 2], 'A': [11, 1]}
     
@@ -97,7 +98,7 @@ as necessary.
 
 <ins>Time Complexity:</ins> O(1) or constant
    * The worst case where a single hand has 4 A's and assess_hand has to traverse 
-the whole dictionary to find entry 'A' is: **O(# of card type * # of A's) or O(13 * 4)**
+the whole dictionary to find entry 'A' is constant: O(num of card types * num of A's) or O(13 * 4)
 
 ### Reflection & Future Improvements
 Overall, I think I did a good job on choosing the data structures that are intuitive, efficient, and 
@@ -131,7 +132,7 @@ Make sure that pytest is installed
 
 1. Navigate to the root of the folder where this README is located
 2. Simply run `pytest` on the command line to start a series of unit and integration tests defined in `/tests`
-> Run `pytest -s` to run all tests and see game-related print statements
+    > or run `pytest -s` to run all tests and see game-related print statements
 
 #### Manual tests
 I manually played a bunch of mock games, each time with a strategy such as:
