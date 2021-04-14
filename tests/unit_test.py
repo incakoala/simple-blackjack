@@ -6,6 +6,7 @@ def test_calculate_total_value():
     """Test that the logic for calculating total hand value is correct"""
     game = BlackJack()
     game.player_hand = {'A': [11, 11], '6': [6], '2': [2]}
+    game.aces_drawn = 2
     game.assess_hand(game.player_hand)
     assert game.total_value(game.player_hand) == 20
 
@@ -52,6 +53,7 @@ def test_assess_hand_with_two_aces():
     game.dealer_hand['A'].append(11)
     game.dealer_hand['A'].append(11)
     game.dealer_hand['9'].append(9)
+    game.aces_drawn = 2
     # Before calling assess_hand it should bust
     assert game.is_bust(game.dealer_hand)
     # call assess_hand to adjust value
@@ -128,6 +130,7 @@ def test_player_higher_than_dealer():
     game.dealer_hand['5'].append(5)
     game.dealer_hand['5'].append(5)
     game.dealer_hand['7'].append(7)
+    game.aces_drawn = 2
     game.assess_both_hands(game.player_hand, game.dealer_hand)
     assert not game.is_bust(game.player_hand)
     assert game.total_value(game.player_hand) > game.total_value(game.dealer_hand)

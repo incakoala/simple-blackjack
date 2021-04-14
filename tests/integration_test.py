@@ -8,6 +8,7 @@ def test_game_player_keeps_hitting(monkeypatch):
     Automate the entire game flow
     when Player keeps hitting until they either bust/blackjack
     """
+
     def gen_input(prompt):
         return 'H\n'
 
@@ -21,6 +22,7 @@ def test_game_player_stands_right_away(monkeypatch):
     Automate the entire game flow
     when Player stands as soon as their turn starts
     """
+
     def gen_input(prompt):
         return 'S\n'
 
@@ -34,6 +36,7 @@ def test_game_player_stands_at_some_point(monkeypatch):
     Automate the entire game flow
     when Player hits and then stands
     """
+
     def gen_input():
         for ans in ['H', 'S']:
             yield ans

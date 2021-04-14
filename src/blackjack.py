@@ -13,6 +13,7 @@ class BlackJack:
         # Player's and Dealer hands
         self.player_hand = defaultdict(list)
         self.dealer_hand = defaultdict(list)
+        self.aces_drawn = 0
 
     def draw_card(self, hand):
         """Draw and add a card to hand"""
@@ -20,6 +21,7 @@ class BlackJack:
         random.shuffle(self.deck)
         idx = random.randint(0, len(self.deck) - 1)
         card = self.deck[idx]
+        if card == 'A': self.aces_drawn += 1
         # take the drawn card out of deck
         del self.deck[idx]
         # add card to hand
@@ -41,11 +43,16 @@ class BlackJack:
         """
         Assess and readjust ace(s) so that hand has a maximum, non-bust total value
         """
-        for key, val in hand.items():
-            for i in range(len(val)):
-                # if an Ace(11) is present and total value is a bust, adjust it to 1
-                if val[i] == 11 and self.total_value(hand) > 21:
-                    val[i] = 1
+        aces_adjusted = 0
+        if self.aces_drawn > 0:
+            for key, val in hand.items():
+                    for i in range(len(val)):
+                        # if an Ace(11) is present and total value is a bust, adjust it to 1
+                        if val[i] == 11 and self.total_value(hand) > 21:
+                            val[i] = 1
+                            aces_adjusted += 1
+                            if aces_adjusted == self.aces_drawn:
+                                break
 
     def assess_both_hands(self, hand1, hand2):
         """Assess two hands"""
