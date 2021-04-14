@@ -1,7 +1,7 @@
 # Freenome Coding Challenge
 **Vy Thai**
 
-A command-line version of a single game of Blackjack. The only two players are the Player(user) and 
+A command-line version of a simple game of Blackjack. The only two players are the Player(user) and 
 Dealer. The Player will be prompted to interact with the command-line throughout the game, and all dealing,
 drawing, and other game play will be handled automatically by the program.
 
@@ -120,11 +120,12 @@ the integration level with mocking random.choice, for example.
 * [python3](https://www.python.org/downloads/)
 * [pytest](https://pypi.org/project/pytest/)
     * Install pytest by running `pip3 install pytest` at project's root
-    * Check that it was successfully installed `pytest --version`
+    * Check that it was successfully installed: `pytest --version`
     
 ### Run
 1. Navigate to the root of the folder where this README is located
 2. Run the program by typing `python3 src/blackjack.py` on the command line
+    > or run the file directly using your IDE
 
 ### Test
 #### Automated tests
