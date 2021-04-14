@@ -24,18 +24,15 @@ drawing, and other game play will be handled automatically by the program.
 
 ### Contents
 * [Overview](#overview)
-    * Assumptions/choices to overcome lack of clarity
-    * What I did well
-    * [Design Choices and Algorithm](#design)
-        * Tradeoffs and how I resolved them
-        * [Complexity analysis](#complexity-analysis)
-    * [Improvements](#improvements)
+    * [Design Choices and Algorithm](#design-choices-and-algorithm)
+        * [Ace-assessing algorithm](#ace-assessing-algorithm)
+    * [Reflection & Future Improvements](#reflection--future-improvements)
 * [How to use](#how-to-use)
     * [Requirements](#requirements)
     * [Run](#run)
     * [Test](#test)
-        * [Manual tests](#manual-tests)
         * [Automated tests](#automated-tests)
+        * [Manual tests](#manual-tests)
 
 ## Overview
 Without playing Blackjack (and barely any card game) before, the provided instructions did a really 
