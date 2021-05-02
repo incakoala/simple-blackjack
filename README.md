@@ -1,4 +1,4 @@
-# Freenome Coding Challenge
+# Simple Blackjack
 **Vy Thai**
 
 A command-line version of a simple game of Blackjack. The only two players are the Player(user) and 
